@@ -9,5 +9,14 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("what is your name")) {
     return ("Eyob");
   }
+
+  const numbersRegex = /\b\d+\b/g; // Regular expression to match numbers
+
+  const numbers = query.match(numbersRegex);
+  
+  if (numbers && numbers.length >= 2) {
+    const largestNumber = Math.max(...numbers.map(Number));
+    return `${largestNumber}.`;
+  }
   return "";
 }
