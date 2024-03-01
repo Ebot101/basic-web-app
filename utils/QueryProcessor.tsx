@@ -18,5 +18,16 @@ export default function QueryProcessor(query: string): string {
     const largestNumber = Math.max(...numbers.map(Number));
     return `${largestNumber}.`;
   }
+
+  const additionRegex = /(\d+)\s*plus\s*(\d+)/i; // Regular expression to match addition queries
+
+  const match = query.match(additionRegex);
+  
+  if (match && match.length === 3) {
+    const num1 = parseInt(match[1]);
+    const num2 = parseInt(match[2]);
+    const sum = num1 + num2;
+    return `${sum}`;
+  }
   return "";
 }
