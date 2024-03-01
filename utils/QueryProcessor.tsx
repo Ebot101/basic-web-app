@@ -10,16 +10,16 @@ export default function QueryProcessor(query: string): string {
     return ("Eyob");
   }
 
-  const numbersRegex = /\b\d+\b/g; // Regular expression to match numbers
+  const numbersRegex = /\b\d+\b/g; 
 
   const numbers = query.match(numbersRegex);
   
   if (numbers && numbers.length >= 2) {
     const largestNumber = Math.max(...numbers.map(Number));
-    return `${largestNumber}.`;
+    return `${largestNumber}`;
   }
 
-  const additionRegex = /(\d+)\s*plus\s*(\d+)/i; // Regular expression to match addition queries
+  const additionRegex = /(\d+)\s*plus\s*(\d+)/i; 
 
   const match = query.match(additionRegex);
   
@@ -29,5 +29,6 @@ export default function QueryProcessor(query: string): string {
     const sum = num1 + num2;
     return `${sum}`;
   }
+
   return "";
 }
